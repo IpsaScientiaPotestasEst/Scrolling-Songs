@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title> Scolling Songs </title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+
+            text-align: center;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #toast {
+
+            display: none; z-index: 1; pointer-events: none;
+
+        }
+
+        #toast.show {
+
+            display: block !important; z-index: 999999999; pointer-events: auto;
+
+
+        }
+
+        #toast.show>div{
+
+            top: 10%; z-index: 999999999; pointer-events: auto;
+        }
+
+        #toast>div {
+            pointer-events: none; z-index: 1;
+        }
+
+
+
+        iframe {
+
+            pointer-events: none;
+        }
+
+        #dataDisplay{
+
+            pointer-events: auto !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <br>
+
+    <div>
+
+        <input type="text" id="search" style="width: 50%; height: 4%;
+    
+            background-color: #646464;
+            
+            border-radius: 20px; font-size: 120%; outline: 1px solid black;
+            " />
+
+        <div id="toast" style="position: absolute; left: 30%;
+            
+            background: rgba(163, 155, 155, 0.041); 
+            
+            color: white; padding: 12px 15%; border-radius: 20px; 
+            
+            font-size: 20px; z-index: 999999999; border: 2px solid gray;
+
+            
+            
+            ">
+            <div id="displayer1" class="top">
+
+                <iframe width="60" height="70" style="background-color: white" id="display1">
+
+                </iframe>
+            </div>
+
+
+            <div id="displayer2" class="top">
+
+                <iframe width="60" height="70" style="background-color: white" id="display2">
+
+                </iframe>
+            </div>
+
+            <div id="displayer3" class="top">
+
+                <iframe width="60" height="70" style="background-color: white" id="display3">
+
+                </iframe>
+            </div>
+
+
+
+            <div id="displayer4" class="top">
+
+                <iframe width="60" height="70" style="background-color: white" id="display4">
+
+                </iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br> <br> <br> <br>
+
+    <iframe id="dataDisplay" width="500" height="300" allowfullscreen style="background-color: white">
+
+    </iframe>
+
+
+    <script>
+
+
+
+        let Thes = document.getElementById("search");
+
+        let display = document.getElementById("dataDisplay");
+
+        let data = [
+            "https://www.youtube.com/embed/hKRUPYrAQoE?loop=1&playlist=hKRUPYrAQoE",
+            "https://www.youtube.com/embed/n8X9_MgEdCg?loop=1&playlist=n8X9_MgEdCg",
+            "https://www.youtube.com/embed/TW9d8vYrVFQ?loop=1&playlist=TW9d8vYrVFQ",
+            "https://www.youtube.com/embed/cNcy3J4x62M?loop=1&playlist=cNcy3J4x62M"
+        ];
+
+        let map = { one: 0, two: 1, three: 2, four: 3 }
+
+        function searcher() {
+
+            const s = Thes.value.toLowerCase().trim();
+
+            if (map[s] !== undefined) { display.src = data[map[s]] }
+
+
+
+
+        }
+
+        const display1 = document.getElementById("display1");
+
+        const display2 = document.getElementById("display2");
+
+        const display3 = document.getElementById("display3");
+
+        const display4 = document.getElementById("display4");
+
+        //const divs start here
+
+        const displayer1 = document.getElementById("displayer1");
+
+        const displayer2 = document.getElementById("displayer2");
+
+        const displayer3 = document.getElementById("displayer3");
+
+        const displayer4 = document.getElementById("displayer4");
+
+        //const divs end here 
+
+
+
+        display1.src = data[0];
+
+        display2.src = data[1];
+
+        display3.src = data[2];
+
+        display4.src = data[3];
+
+
+
+        displayer1.addEventListener("click", () => display.src = data[0]);
+
+        displayer2.addEventListener("click", () => display.src = data[1]);
+
+        displayer3.addEventListener("click", () => display.src = data[2]);
+
+        displayer4.addEventListener("click", () => display.src = data[3]);
+
+
+
+
+
+
+
+
+
+        Thes.addEventListener("keydown", function (event) {
+
+
+            if (event.key === "Enter") {
+
+                searcher();
+            }
+        })
+
+        Thes.addEventListener("focus", () => {
+
+            const toast = document.getElementById("toast");
+
+            toast.classList.add("show");
+
+        })
+
+        Thes.addEventListener("blur", () => {
+            setTimeout(() => {
+                const toast = document.getElementById("toast");
+                if (!toast.contains(document.activeElement)) {
+                    toast.classList.remove("show");
+                }
+
+
+            }, 150)
+
+        })
+
+    </script>
+
+</body>
+
+</html>
