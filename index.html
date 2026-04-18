@@ -15,11 +15,10 @@ html, body {
 
 
         body {
-
-            
-            text-align: center;
-            background-color: black;
-            overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         }
 
         #toast {
@@ -55,19 +54,25 @@ html, body {
 
             pointer-events: auto !important;
         }
+
+        #content {
+    width: 600px;
+    height: 400px;
+    transform-origin: top left;
+}
     </style>
 
 </head>
 
 <body>
 
-    <body>
+   
   
            
 
 
 
-   
+   <div id="content">
 
     <br>
 
@@ -132,7 +137,7 @@ html, body {
 
     </iframe>
 
-       
+   </div>
 
    
     <script>
@@ -250,6 +255,7 @@ html, body {
     
 }
         document.getElementById("search").addEventListener("focus", scaleContent);
+        window.addEventListener("load", scaleContent);
 
 
 
