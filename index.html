@@ -240,6 +240,17 @@ html, body {
 
         })
 
+    function scaleContent() {
+    const content = document.getElementById("content");
+    const scaleX = window.innerWidth / 600;
+    const scaleY = window.innerHeight / 400;
+    const scale = Math.min(scaleX, scaleY);
+    content.style.transform = `scale(${scale})`;
+
+    
+}
+        document.getElementById("search").addEventListener("focus", scaleContent());
+
 
 
     </script>
