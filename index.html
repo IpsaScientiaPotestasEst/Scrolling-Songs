@@ -6,14 +6,31 @@
     <title> Songs  </title>
 
     <style>
-        html,
-        body {
-            height: 100%;
-        }
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* no scrollbars */
+    height: 100%;
+}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#content {
+    width: 600px;   /* your design width */
+    height: 400px;  /* your design height */
+    transform-origin: top left;
+}
 
         body {
 
-            margin: auto;
+            
             text-align: center;
             background-color: black;
             overflow: hidden;
@@ -58,12 +75,13 @@
 
 <body>
 
-    <svg 
-    viewBox="0 0 600 400" 
-    preserveAspectRatio="xMidYMid meet"
-    width="100vw"
-    height="100vh"
->
+    <body>
+    <div id="wrapper">
+        <div id="content">
+            <!-- your entire website goes here -->
+
+
+
    
 
     <br>
@@ -129,7 +147,10 @@
 
     </iframe>
 
-    </svg>
+                    </div>
+    </div>
+
+   
     <script>
 
 
@@ -234,6 +255,17 @@
             }, 150)
 
         })
+
+        function scaleContent() {
+    const content = document.getElementById("content");
+    const scaleX = window.innerWidth / 600;
+    const scaleY = window.innerHeight / 400;
+    const scale = Math.min(scaleX, scaleY);
+    content.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("resize", scaleContent);
+scaleContent();
 
     </script>
 
