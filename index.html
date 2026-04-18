@@ -8,18 +8,11 @@
     <style>
 html, body {
     margin: 0;
-    padding: 0;
     overflow: hidden; 
-    height: 100%;
+    
 }
 
-#wrapper {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+
 
         body {
 
@@ -69,9 +62,8 @@ html, body {
 <body>
 
     <body>
-    <div id="wrapper">
-        <div id="content">
-            <!-- your entire website goes here -->
+  
+           
 
 
 
@@ -140,8 +132,7 @@ html, body {
 
     </iframe>
 
-                    </div>
-    </div>
+       
 
    
     <script>
@@ -249,16 +240,7 @@ html, body {
 
         })
 
-        function scaleContent() {
-    const content = document.getElementById("content");
-    const scaleX = window.innerWidth / 600;
-    const scaleY = window.innerHeight / 400;
-    const scale = Math.min(scaleX, scaleY);
-    content.style.transform = `scale(${scale})`;
-}
 
-window.addEventListener("resize", scaleContent);
-scaleContent();
 
     </script>
 
